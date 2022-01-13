@@ -1,7 +1,7 @@
 import React from "react";
 import ListItem from "./ListItem";
 
-const CountriesList = ({ countries }) => {
+const CountriesList = ({ countries, onCountryClick }) => {
     const countriesNodes = countries.map((country, index) => {
         const countryObject = {
             name: country.name.common,
@@ -9,7 +9,13 @@ const CountriesList = ({ countries }) => {
             flag: country.flags.svg,
         };
 
-        return <ListItem country={countryObject} key={index} />;
+        return (
+            <ListItem
+                onCountryClick={onCountryClick}
+                country={countryObject}
+                key={index}
+            />
+        );
     });
 
     return (
